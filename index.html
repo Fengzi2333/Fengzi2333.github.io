@@ -152,124 +152,11 @@ void Dijkstra()
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/HDU-2544-最短路/2017/04/24/" data-id="cj1w5hmqd000108mmv641ynq2" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/HDU-2544-最短路/2017/04/24/" data-id="cj1w5t0b9000070mmr1fna6e1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shortest-path/">shortest path</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HDU-5937-Equation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/HDU-5937-Equation/2017/04/21/" class="article-date">
-  <time datetime="2017-04-21T08:59:54.000Z" itemprop="datePublished">2017-04-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/HDU-5937-Equation/2017/04/21/">HDU 5937 Equation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: HDU 5937 Equation</p>
-<p>date: 2017-04-21 16:59:54</p>
-<h2 id="tags-ACM-HDU"><a href="#tags-ACM-HDU" class="headerlink" title="tags:[ACM] [HDU]"></a>tags:[ACM] [HDU]</h2><pre><code>#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cstring&gt;
-#include &lt;cmath&gt;
-#include &lt;ctime&gt;
-using namespace std;
-
-int start, end;
-int num[10];
-int m[10][10];
-int aws, cnt;
-int search(int);
-int main()
-{
-    int t, i, j, k;
-    //t = 1;
-    scanf(&quot;%d&quot;, &amp;t);
-    for (i = 0; i &lt; t; i++)
-    {
-
-        aws = 0;
-        for (j = 1; j &lt; 10; j++)
-            scanf(&quot;%d&quot;, num + j);
-        for (j = 1; j &lt; 10; j++)
-        {
-            for (k = 1; k &lt; 10; k++)
-            {
-                m[j][k] = m[k][j] = num[j] &amp;&amp; num[k] &amp;&amp; (j + k &lt; 10) &amp;&amp; (j != k || num[j] &gt;= 2);
-            }
-        }
-        search(0);
-        //end = clock();
-        printf(&quot;Case #%d: %d\n&quot;, i + 1, aws);
-
-    }
-    return 0;
-}
-
-int search(int n)
-{
-    int j, k, flag;
-    for (j = 1; j &lt; 10; j++)
-    {
-        if (!num[j])
-            continue;
-        for (k = 1; k &lt;=j ; k++)
-        {
-            if (m[j][k] &amp;&amp; num[j] &amp;&amp; num[k] &amp;&amp; num[j + k] &amp;&amp; (j != k || num[j] &gt;= 2))
-            {
-                num[j]--;
-                num[k]--;
-                num[j + k]--;
-                m[j][k] = 0;
-                cnt++;
-                /*sprintf(s +temp, &quot;%d %d\n&quot;, j, k);*/
-                search(n + 1);
-                num[j]++;
-                num[k]++;
-                num[j + k]++;
-                m[j][k] = 1;
-                cnt--;
-            }
-        }
-    }
-
-    if (cnt &gt; aws)
-        aws = cnt;
-    //if (cnt == 6)
-    //    fputs(&quot;**********************************************&quot;, p);
-    //sprintf(s + strlen(s), &quot;%d\n&quot;, cnt);
-    //fputs(s, p);
-    ////printf(&quot;\n&quot;);
-    return 1;
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/HDU-5937-Equation/2017/04/21/" data-id="cj1w5hmq5000008mmuu7huhxq" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -303,7 +190,7 @@ int search(int n)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/Test/2017/04/15/" data-id="cj1w5hmqh000208mm276m3s5q" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/Test/2017/04/15/" data-id="cj1w5t0bi000170mmijv0c4g1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +235,7 @@ int search(int n)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/hello-world/2017/04/15/" data-id="cj1w5hmqz000408mm1kyq6boa" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/hello-world/2017/04/15/" data-id="cj1w5t0bq000370mm93scra0f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,10 +290,6 @@ int search(int n)
         
           <li>
             <a href="/HDU-2544-最短路/2017/04/24/">HDU-2544-最短路</a>
-          </li>
-        
-          <li>
-            <a href="/HDU-5937-Equation/2017/04/21/">HDU 5937 Equation</a>
           </li>
         
           <li>
