@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://fengzi2333.github.io"></form>
@@ -64,6 +64,53 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-HDU-2544-最短路" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/HDU-2544-最短路/2017/04/24/" class="article-date">
+  <time datetime="2017-04-24T12:40:36.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/HDU-2544-最短路/2017/04/24/">HDU-2544-最短路</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#include <cstdio></cstdio></p>
+<p>#include <cstdlib></cstdlib></p>
+<p>#include <cstring></cstring></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <queue></queue></p>
+<p>#define INF (INT_MAX/2)<br>using namespace std;</p>
+<p>int G[101][101];<br>int w[101];<br>int visited[101];<br>int n, m;<br>void Dijkstra();</p>
+<p>int main()<br>{<br>    int a, b, c, i, j;<br>    while (scanf(“%d %d”, &amp;n, &amp;m) &amp;&amp; (n || m))<br>    {<br>        for (i = 0; i &lt;= n; i++)<br>            for (j = 0; j &lt;= n; j++)<br>            {<br>                G[i][j] = i == j ? 0 : INF;<br>            }<br>        for (i = 0; i &lt; m; i++)<br>        {<br>            scanf(“%d %d %d”, &amp;a, &amp;b, &amp;c);<br>            if (G[a][b] &gt; c)<br>                G[a][b] = G[b][a] = c;<br>        }<br>        Dijkstra();<br>        printf(“%d\n”, w[n]);<br>    }<br>    return 0;<br>}</p>
+<p>void Dijkstra()<br>{<br>    memset(visited, 0, sizeof(visited));<br>    for (int i = 1; i &lt;= n; i++)<br>        w[i] = G[1][i];<br>    w[1] = 0;<br>    for (int i = 1; i &lt;= n; i++)<br>    {<br>        int min = INF;<br>        int Vmin;<br>        for (int j = 1; j &lt;= n; j++)<br>        {<br>            if (!visited[j] &amp;&amp; w[j] &lt; min&amp;&amp;i != j)<br>            {<br>                min = w[Vmin = j];<br>            }<br>        }<br>        visited[Vmin] = 1;<br>        for (int j = 1; j &lt;= n; j++)<br>        {<br>            if (w[j] &gt; w[Vmin] + G[Vmin][j])<br>                w[j] = w[Vmin] + G[Vmin][j];<br>        }<br>    }<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fengzi2333.github.io/HDU-2544-最短路/2017/04/24/" data-id="cj1w5gzsl0000jommzj02ru3y" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SHORTEST-PATH/">SHORTEST PATH</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-HDU-5937-Equation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -168,7 +215,7 @@ int search(int n)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/HDU-5937-Equation/2017/04/21/" data-id="cj1w5as7f000080mm6azjdmlx" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/HDU-5937-Equation/2017/04/21/" data-id="cj1w5d98x0000usmmb0xmfyo9" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -204,7 +251,7 @@ int search(int n)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/Test/2017/04/15/" data-id="cj1w5as8z000180mm1trf6s42" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/Test/2017/04/15/" data-id="cj1w5d9970001usmmmcu8qvy8" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -249,7 +296,7 @@ int search(int n)
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/hello-world/2017/04/15/" data-id="cj1w5as93000280mmzesqcdb6" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/hello-world/2017/04/15/" data-id="cj1w5d99b0002usmm9hxls8xo" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -268,13 +315,27 @@ int search(int n)
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SHORTEST-PATH/">SHORTEST PATH</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/SHORTEST-PATH/" style="font-size: 10px;">SHORTEST PATH</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -284,9 +345,13 @@ int search(int n)
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/HDU-2544-最短路/2017/04/24/">HDU-2544-最短路</a>
+          </li>
         
           <li>
             <a href="/HDU-5937-Equation/2017/04/21/">HDU 5937 Equation</a>
