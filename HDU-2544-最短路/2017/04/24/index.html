@@ -3,19 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>HDU 5937 Equation | Daedra&#39;s CodeArena</title>
+  <title>HDU-2544-最短路 | Daedra&#39;s CodeArena</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: HDU 5937 Equation date: 2017-04-21 16:59:54 tags:[ACM] [HDU]#include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cmath&amp;gt; #include &amp;lt;ctime&amp;gt; using namesp">
-<meta name="keywords">
+  <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU 5937 Equation">
-<meta property="og:url" content="https://fengzi2333.github.io/HDU-5937-Equation/2017/04/21/index.html">
+<meta property="og:title" content="HDU-2544-最短路">
+<meta property="og:url" content="https://fengzi2333.github.io/HDU-2544-最短路/2017/04/24/index.html">
 <meta property="og:site_name" content="Daedra's CodeArena">
-<meta property="og:description" content="title: HDU 5937 Equation date: 2017-04-21 16:59:54 tags:[ACM] [HDU]#include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cmath&amp;gt; #include &amp;lt;ctime&amp;gt; using namesp">
-<meta property="og:updated_time" content="2017-04-21T11:17:51.762Z">
+<meta property="og:updated_time" content="2017-04-24T13:10:20.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU 5937 Equation">
-<meta name="twitter:description" content="title: HDU 5937 Equation date: 2017-04-21 16:59:54 tags:[ACM] [HDU]#include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cmath&amp;gt; #include &amp;lt;ctime&amp;gt; using namesp">
+<meta name="twitter:title" content="HDU-2544-最短路">
   
     <link rel="alternate" href="/atom.xml" title="Daedra&#39;s CodeArena" type="application/atom+xml">
   
@@ -68,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-HDU-5937-Equation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-HDU-2544-最短路" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/HDU-5937-Equation/2017/04/21/" class="article-date">
-  <time datetime="2017-04-21T08:59:54.000Z" itemprop="datePublished">2017-04-21</time>
+    <a href="/HDU-2544-最短路/2017/04/24/" class="article-date">
+  <time datetime="2017-04-24T13:10:20.000Z" itemprop="datePublished">2017-04-24</time>
 </a>
     
   </div>
@@ -82,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HDU 5937 Equation
+      HDU-2544-最短路
     </h1>
   
 
@@ -90,88 +87,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: HDU 5937 Equation</p>
-<p>date: 2017-04-21 16:59:54</p>
-<h2 id="tags-ACM-HDU"><a href="#tags-ACM-HDU" class="headerlink" title="tags:[ACM] [HDU]"></a>tags:[ACM] [HDU]</h2><pre><code>#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cstring&gt;
-#include &lt;cmath&gt;
-#include &lt;ctime&gt;
-using namespace std;
-
-int start, end;
-int num[10];
-int m[10][10];
-int aws, cnt;
-int search(int);
-int main()
-{
-    int t, i, j, k;
-    //t = 1;
-    scanf(&quot;%d&quot;, &amp;t);
-    for (i = 0; i &lt; t; i++)
-    {
-
-        aws = 0;
-        for (j = 1; j &lt; 10; j++)
-            scanf(&quot;%d&quot;, num + j);
-        for (j = 1; j &lt; 10; j++)
-        {
-            for (k = 1; k &lt; 10; k++)
-            {
-                m[j][k] = m[k][j] = num[j] &amp;&amp; num[k] &amp;&amp; (j + k &lt; 10) &amp;&amp; (j != k || num[j] &gt;= 2);
-            }
-        }
-        search(0);
-        //end = clock();
-        printf(&quot;Case #%d: %d\n&quot;, i + 1, aws);
-
-    }
-    return 0;
-}
-
-int search(int n)
-{
-    int j, k, flag;
-    for (j = 1; j &lt; 10; j++)
-    {
-        if (!num[j])
-            continue;
-        for (k = 1; k &lt;=j ; k++)
-        {
-            if (m[j][k] &amp;&amp; num[j] &amp;&amp; num[k] &amp;&amp; num[j + k] &amp;&amp; (j != k || num[j] &gt;= 2))
-            {
-                num[j]--;
-                num[k]--;
-                num[j + k]--;
-                m[j][k] = 0;
-                cnt++;
-                /*sprintf(s +temp, &quot;%d %d\n&quot;, j, k);*/
-                search(n + 1);
-                num[j]++;
-                num[k]++;
-                num[j + k]++;
-                m[j][k] = 1;
-                cnt--;
-            }
-        }
-    }
-
-    if (cnt &gt; aws)
-        aws = cnt;
-    //if (cnt == 6)
-    //    fputs(&quot;**********************************************&quot;, p);
-    //sprintf(s + strlen(s), &quot;%d\n&quot;, cnt);
-    //fputs(s, p);
-    ////printf(&quot;\n&quot;);
-    return 1;
-}
-</code></pre>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fengzi2333.github.io/HDU-5937-Equation/2017/04/21/" data-id="cj1w54io30001r4mmjju8elsl" class="article-share-link">Share</a>
+      <a data-url="https://fengzi2333.github.io/HDU-2544-最短路/2017/04/24/" data-id="cj1w54inv0000r4mmbvaj856a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,20 +100,15 @@ int search(int n)
     
 <nav id="article-nav">
   
-    <a href="/Test/2017/04/15/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/HDU-5937-Equation/2017/04/21/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Test
+          HDU 5937 Equation
         
       </div>
     </a>
   
-  
-    <a href="/HDU-2544-最短路/2017/04/24/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">HDU-2544-最短路</div>
-    </a>
   
 </nav>
 
